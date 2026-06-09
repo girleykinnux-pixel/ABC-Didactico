@@ -1,135 +1,140 @@
-/* Restablecimiento básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
 }
 
-/* Dar estilo a la navbar: posición, colores, tipografía [cite: 65] */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #2c3e50;
-  color: white;
-  padding: 20px 40px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.barra-superior {
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.contador-container {
-  font-size: 1.2rem;
-  font-weight: bold;
+.barra-superior h1 {
+    margin: 0;
+    font-size: 24px;
 }
 
-/* Estilizar los botones de filtro [cite: 68] */
+.contador {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .filtros {
-  text-align: center;
-  margin: 30px 0;
+    text-align: center;
+    margin: 25px 0;
 }
 
 .filtros button {
-  padding: 10px 25px;
-  margin: 0 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  transition: background-color 0.3s;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
 .filtros button:hover {
-  background-color: #2980b9;
+    background-color: #2980b9;
 }
 
-/* Organización visual de las cards en la galería [cite: 17] */
-.galeria {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+#contenedor-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+    padding: 0 30px;
+    margin-bottom: 40px;
 }
 
-/* Estilizar las cards: tamaño, borde, sombra, cursor pointer [cite: 66] */
-.card {
-  width: 200px;
-  height: 250px;
-  cursor: pointer;
-  /* La perspectiva es necesaria para el efecto 3D */
-  perspective: 1000px;
+/* Sistema 3D para el giro */
+.tarjeta {
+    perspective: 1000px;
+    min-height: 260px;
+    cursor: pointer;
 }
 
-/* El efecto se logra con transformaciones CSS en el eje Y. [cite: 70] */
-/* Investiguen las propiedades transform, backface-visibility y transition [cite: 70] */
-.card-frente,
-.card-dorso {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  backface-visibility: hidden;
-  transition: transform 0.6s ease-in-out;
-  border-radius: 12px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.contenido-tarjeta {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
 }
 
-/* Frente visible por defecto [cite: 67] */
-.card-frente {
-  background-color: #f39c12;
-  color: white;
+.tarjeta.descubierta .contenido-tarjeta {
+    transform: rotateY(180deg);
 }
 
-.card-frente h1 {
-  font-size: 5rem;
+.parte-frontal, .parte-trasera {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 15px;
 }
 
-/* Dorso oculto al inicio [cite: 67] */
-.card-dorso {
-  background-color: #fff;
-  color: #333;
-  /* Gira el dorso 180 grados para que quede de espaldas inicialmente */
-  transform: rotateY(180deg);
+/* Cara Frontal Naranja */
+.parte-frontal {
+    background-color: #e69110;
+    color: white;
 }
 
-.card-dorso img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 15px;
+.letra-grande {
+    font-size: 6rem;
+    font-weight: bold;
 }
 
-/* La clase volteada es la que JavaScript va a agregar y quitar [cite: 71] */
-/* Al agregar la clase volteada deben intercambiarse [cite: 67] */
-.card.volteada .card-frente {
-  transform: rotateY(180deg);
+/* Cara Trasera Blanca */
+.parte-trasera {
+    background-color: white;
+    transform: rotateY(180deg);
 }
 
-.card.volteada .card-dorso {
-  transform: rotateY(0deg); /* O 360deg dependiendo del flujo */
+.palabra-arriba {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin: 0 0 5px 0;
 }
 
-/* Estilizar la sección del equipo [cite: 68] */
-.equipo {
-  background-color: #ecf0f1;
-  text-align: center;
-  padding: 40px 20px;
-  margin-top: 50px;
-  border-top: 4px solid #bdc3c7;
+.nombre-palabra {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 5px 0 0 0;
 }
 
-.equipo h3 {
-  color: #2c3e50;
-  margin-bottom: 10px;
+/* Domar la imagen gigante de la abeja */
+.tarjeta img {
+    width: 100% !important;
+    max-width: 140px !important;
+    height: 110px !important;
+    object-fit: contain !important;
+    border-radius: 8px;
+    margin: 10px 0 !important;
+    display: block !important;
+}
+
+.pie-pagina {
+    background-color: #eaeded;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #d5dbdb;
 }
