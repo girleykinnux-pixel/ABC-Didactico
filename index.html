@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABC Challenge</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/462ed4af42.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <h2>ABC Challenge</h2>
+      <div class="contador-container">
+        Letras descubiertas: <span id="contador-letras">0</span>/27
+      </div>
+    </nav>
+
+    <div class="filtros">
+      <button onclick="filtrar('vocales')">Vocales</button>
+      <button onclick="filtrar('todas')">Todas</button>
+    </div>
+
+    <div id="galeria-letras" class="galeria"></div>
+    <footer class="equipo">
+      <h3>Equipo Full Stack. <i class="fa-solid fa-bomb"></i></h3>
+      <p>
+        Líder: Girley Barahona | Desarrolladores: Julian Malpica, Fabian
+        Rodriguez, Andres Escobar, Yosed Sanchez
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
