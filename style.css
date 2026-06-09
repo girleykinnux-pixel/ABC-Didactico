@@ -1,0 +1,135 @@
+/* Restablecimiento básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Dar estilo a la navbar: posición, colores, tipografía [cite: 65] */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contador-container {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Estilizar los botones de filtro [cite: 68] */
+.filtros {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.filtros button {
+  padding: 10px 25px;
+  margin: 0 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.filtros button:hover {
+  background-color: #2980b9;
+}
+
+/* Organización visual de las cards en la galería [cite: 17] */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilizar las cards: tamaño, borde, sombra, cursor pointer [cite: 66] */
+.card {
+  width: 200px;
+  height: 250px;
+  cursor: pointer;
+  /* La perspectiva es necesaria para el efecto 3D */
+  perspective: 1000px;
+}
+
+/* El efecto se logra con transformaciones CSS en el eje Y. [cite: 70] */
+/* Investiguen las propiedades transform, backface-visibility y transition [cite: 70] */
+.card-frente,
+.card-dorso {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  transition: transform 0.6s ease-in-out;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Frente visible por defecto [cite: 67] */
+.card-frente {
+  background-color: #f39c12;
+  color: white;
+}
+
+.card-frente h1 {
+  font-size: 5rem;
+}
+
+/* Dorso oculto al inicio [cite: 67] */
+.card-dorso {
+  background-color: #fff;
+  color: #333;
+  /* Gira el dorso 180 grados para que quede de espaldas inicialmente */
+  transform: rotateY(180deg);
+}
+
+.card-dorso img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* La clase volteada es la que JavaScript va a agregar y quitar [cite: 71] */
+/* Al agregar la clase volteada deben intercambiarse [cite: 67] */
+.card.volteada .card-frente {
+  transform: rotateY(180deg);
+}
+
+.card.volteada .card-dorso {
+  transform: rotateY(0deg); /* O 360deg dependiendo del flujo */
+}
+
+/* Estilizar la sección del equipo [cite: 68] */
+.equipo {
+  background-color: #ecf0f1;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 50px;
+  border-top: 4px solid #bdc3c7;
+}
+
+.equipo h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
