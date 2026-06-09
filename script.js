@@ -23,9 +23,9 @@ const datosAbecedario = [
     { letra: "U", palabra: "Uva", imagen: "imagenes/Uva.jpg", tipo: "vocal" },
     { letra: "V", palabra: "Vaca", imagen: "imagenes/Vaca.jpg", tipo: "consonante" },
     { letra: "W", palabra: "Wafle", imagen: "imagenes/Wafle.jpg", tipo: "consonante" },
-    { letra: "X", palabra: "Xilófono", imagen: "imagenes/Xilofono.jpg", tipo: "consonante" },
-    { letra: "Y", palabra: "Yate", imagen: "imagenes/Yate.jpg", tipo: "consonante" },
-    { letra: "Z", palabra: "Zebra", imagen: "imagenes/Zebra.jpg", tipo: "consonante" }
+    { letra: "X", palabra: "Xilofono", imagen: "imagenes/Xilofono.png", tipo: "consonante" },
+    { letra: "Y", palabra: "Yoyo", imagen: "imagenes/Yoyo.jpg", tipo: "consonante" },
+    { letra: "Z", palabra: "Zapato", imagen: "imagenes/Zapato.jpg", tipo: "consonante" }
 ];
 
 const contenedorTarjetas = document.getElementById("contenedor-tarjetas");
