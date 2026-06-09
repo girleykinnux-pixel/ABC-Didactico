@@ -1,37 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC Challenge</title>
-    <link rel="stylesheet" href="style.css" />
-    <script
-      src="https://kit.fontawesome.com/462ed4af42.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <nav class="navbar">
-      <h2>ABC Challenge</h2>
-      <div class="contador-container">
-        Letras descubiertas: <span id="contador-letras">0</span>/27
-      </div>
-    </nav>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <div class="filtros">
-      <button onclick="filtrar('vocales')">Vocales</button>
-      <button onclick="filtrar('todas')">Todas</button>
-    </div>
+    <header class="barra-superior">
+        <h1>ABC Challenge</h1>
+        <div class="contador">Letras descubiertas: <span id="contador-letras">0/27</span></div>
+    </header>
 
-    <div id="contenedor-terjetas"></div>
-    <footer class="equipo">
-      <h3>Equipo Full Stack. <i class="fa-solid fa-bomb"></i></h3>
-      <p>
-        Líder: Girley Barahona | Desarrolladores: Julian Malpica, Fabian
-        Rodriguez, Andres Escobar, Yosed Sanchez
-      </p>
+    <main class="contenedor-principal">
+        <section class="filtros">
+            <button id="btn-vocales">Vocales</button>
+            <button id="btn-todas">Todas</button>
+        </section>
+
+        <div id="contenedor-tarjetas"></div>
+    </main>
+
+    <footer class="pie-pagina">
+        <h3>Equipo Full Stack. 💣</h3>
+        <p>Líder: Girley Barahona | Desarrolladores: Julian Malpica, Fabian Rodriguez, Andres Escobar, Yosed Sanchez</p>
     </footer>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
