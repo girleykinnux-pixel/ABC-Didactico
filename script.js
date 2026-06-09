@@ -36,3 +36,122 @@ const datosAbecedario = [
   { letra: "Z", palabra: "Zapato", imagen: "Zapato.jpg", tipo: "consonante" },
 ];
 
+// ==========================================
+
+// Función para generar el HTML dinámicamente
+
+// ==========================================
+
+function generarCartas() {
+
+  const contenedorGaleria = document.getElementById("galeria-letras");
+
+  let contenidoHTML = "";
+
+ 
+
+  // Recorremos nuestro arreglo y creamos el HTML para cada letra
+
+  datosAbecedario.forEach((item) => {
+
+    contenidoHTML += `
+
+        <div class='card' data-tipo='${item.tipo}' onclick='voltear(this)'>
+
+            <div class='card-frente'>
+
+                <h1>${item.letra}</h1>
+
+            </div>
+
+            <div class='card-dorso'>
+
+                <img src='img/${item.imagen}' alt='${item.palabra}'>
+
+                <h3>${item.palabra}</h3>
+
+            </div>
+
+        </div>
+
+        `;
+
+  });
+
+ 
+
+  // Inyectamos todo el HTML generado en el contenedor
+
+  contenedorGaleria.innerHTML = contenidoHTML;
+
+}
+
+ 
+
+// Ejecutamos la función apenas cargue el script para que pinte las cartas
+
+generarCartas();
+
+ 
+
+// ==========================================
+
+// Lógica anterior del Cliente (Voltear y Filtrar)
+
+// ==========================================
+
+ 
+
+function voltear(card) {
+
+  card.classList.toggle("volteada");
+
+ 
+
+  if (!card.dataset.vista) {
+
+    card.dataset.vista = "true";
+
+    const contadorElemento = document.querySelector("#contador-letras");
+
+    let numeroActual = parseInt(contadorElemento.textContent);
+
+    numeroActual++;
+
+    contadorElemento.textContent = numeroActual;
+
+  }
+
+}
+
+ 
+
+function filtrar(tipo) {
+
+  const cards = document.querySelectorAll(".card");
+
+ 
+
+  cards.forEach((card) => {
+
+    if (tipo === "todas") {
+
+      card.style.display = "block";
+
+    } else if (tipo === "vocales") {
+
+      if (card.dataset.tipo === "vocal") {
+
+        card.style.display = "block";
+
+      } else {
+
+        card.style.display = "none";
+
+      }
+
+    }
+
+  });
+
+}
