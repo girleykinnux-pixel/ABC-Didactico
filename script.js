@@ -29,6 +29,12 @@ const datosAbecedario = [
 ];
 
 const contenedorTarjetas = document.getElementById("contenedor-tarjetas");
+const contadorLetras = document.getElementById("contador-letras");
+
+function actualizarContador() {
+    const descubiertas = document.querySelectorAll(".tarjeta.descubierta").length;
+    contadorLetras.textContent = `${descubiertas}/27`;
+}
 
 function cargarTarjetas(filtro = "todas") {
     contenedorTarjetas.innerHTML = "";
@@ -42,8 +48,9 @@ function cargarTarjetas(filtro = "todas") {
         tarjeta.classList.add("tarjeta");
 
         tarjeta.addEventListener("click", () => {
-            tarjeta.classList.toggle("descubierta");
-        });
+    tarjeta.classList.toggle("descubierta");
+    actualizarContador();
+    });
 
         tarjeta.innerHTML = `
             <div class="contenido-tarjeta">
@@ -72,4 +79,5 @@ if (btnVocales && btnTodas) {
 
 document.addEventListener("DOMContentLoaded", () => {
     cargarTarjetas("todas");
+    actualizarContador();
 });

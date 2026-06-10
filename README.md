@@ -1,1 +1,1 @@
-En este programa, junto con mis compañeros de clase, estaba desarrollando un sitio web para niños utilizando commits colaborativos.
+En esté programa, junto con mis compañeros de clase, estaba desarrollando un sitio web para niños utilizando commits colaborativos.
